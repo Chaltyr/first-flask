@@ -22,10 +22,15 @@ def show(username):
     return f"Hi {username[0:6]}"
 
 
-@app.route("/<name>")
-def index(name):
-    name = name.upper()
-    return render_template('index.html', name=name)
+# @app.route("/<name>")
+# def index(name):
+#     name = name.upper()
+#     return render_template('index.html', name=name)
+
+@app.route("/")
+def index():
+    signed_in = False # we are hardcoding this just to demonstrate how we can do conditionals in our template files, in future we won't be hardcoding this.
+    return render_template('index.html', signed_in=signed_in)
 
 
 # app.run(debug=True)
