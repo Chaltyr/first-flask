@@ -5,9 +5,9 @@ app = Flask(__name__)
 # def index():
 #     return '<h1>Why so easy</h1>'
 
-@app.route("/")
-def index():
-   return render_template('index.html') # by default looks for index.html inside a templates folder in the same directory as this script.
+# @app.route("/")
+# def index():
+#    return render_template('index.html') # by default looks for index.html inside a templates folder in the same directory as this script.
 
 # @app.route("/another")
 # def show():
@@ -20,6 +20,13 @@ def index():
 @app.route('/user/<username>')
 def show(username):
     return f"Hi {username[0:6]}"
+
+
+@app.route("/<name>")
+def index(name):
+    name = name.upper()
+    return render_template('index.html', name=name)
+
 
 # app.run(debug=True)
 
